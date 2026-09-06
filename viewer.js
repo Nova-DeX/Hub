@@ -60,6 +60,7 @@
     const fileTitle = file.replace(/^\d{8}_?/, "").replace(/\.md$/, "").replace(/[-_]+/g, " ").trim();
     const sortKey = (file.match(/^(\d{8})/) || ["", "00000000"])[1];
     const images = (meta.images || []).slice(0, 5).map((image) => resolvePath(section, image));
+    const title = meta.title || titleCase(fileTitle) || "Eintrag";
 
     return {
       file,
@@ -67,10 +68,10 @@
       sortKey,
       date: formatDate(sortKey),
       originalDate: meta.original_date || meta.originalDate || "",
-      title: meta.title || titleCase(fileTitle) || "Eintrag",
+      title,
       preview: meta.preview || firstParagraph(parts.body) || "",
       images,
-      body: parts.body.trim(),
+      body: stripDuplicateTitle(parts.body.trim(), title),
     };
   }
 
@@ -136,6 +137,30 @@
     return `content/${section}/${path}`;
   }
 
+  function stripDuplicateTitle(body, title) {
+    const lines = body.split(/\r?\n/);
+    const firstLine = lines[0] || "";
+
+    if (normalizeHeading(firstLine) !== normalizeHeading(title)) {
+      return body;
+    }
+
+    lines.shift();
+
+    while (lines[0] === "") {
+      lines.shift();
+    }
+
+    return lines.join("\n").trim();
+  }
+
+  function normalizeHeading(value) {
+    return String(value)
+      .replace(/^#+\s*/, "")
+      .trim()
+      .toLowerCase();
+  }
+
   function firstParagraph(body) {
     return body
       .replace(/^#+\s+/gm, "")
@@ -164,8 +189,10 @@
     const entry = state.entries.find((item) => item.slug === slug);
 
     if (slug && entry) {
+      document.body.classList.add("entry-open");
       renderDetail(entry);
     } else {
+      document.body.classList.remove("entry-open");
       renderList();
     }
   }
