@@ -5,26 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Vision · Nova-DeX</title>
-  <script src="handymode.js"></script>
   <link rel="stylesheet" href="style.css">
+  <script src="handymode.js" defer></script>
+  <script src="viewer.js" defer></script>
 </head>
-<body>
+<body data-section="vision">
   <div class="layout">
     <header class="site-header" aria-label="Navigation">
       <a class="logo" href="index.html">Nova-DeX</a>
-      <nav class="nav">
-        <a class="" href="index.html">Hub</a>
-        <a class="" href="pinnwand.html">Pinnwand</a>
-        <a class="active" href="vision.html">Vision</a>
-        <a class="" href="mitwirken.html">Mitwirken</a>
-        <a class="" href="ueber-mich.html">Über mich</a>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a class="active" href="index.html">Vision</a>
+        <a href="projekte.html">Projekte</a>
+        <a href="mitwirken.html">Mitwirken</a>
+        <a href="uebermich.html">Übermich</a>
       </nav>
     </header>
     <main class="page">
       <section class="hero">
         <p class="eyebrow">Vision</p>
         <h1>Vision</h1>
-        <p class="placeholder">Lokale Unterstützung für Mental Health.</p>
+        <p>Lokale Unterstützung für Mental Health.</p>
+      </section>
+      <section class="content-card" aria-labelledby="entries-title">
+        <p class="eyebrow">Pinnwand</p>
+        <h2 id="entries-title">Aktuelle Einträge</h2>
+        <div data-entry-root></div>
       </section>
     </main>
   </div>

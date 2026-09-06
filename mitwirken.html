@@ -5,26 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Mitwirken · Nova-DeX</title>
-  <script src="handymode.js"></script>
   <link rel="stylesheet" href="style.css">
+  <script src="handymode.js" defer></script>
+  <script src="viewer.js" defer></script>
 </head>
-<body>
+<body data-section="mitwirken">
   <div class="layout">
     <header class="site-header" aria-label="Navigation">
       <a class="logo" href="index.html">Nova-DeX</a>
-      <nav class="nav">
-        <a class="" href="index.html">Hub</a>
-        <a class="" href="pinnwand.html">Pinnwand</a>
-        <a class="" href="vision.html">Vision</a>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="index.html">Vision</a>
+        <a href="projekte.html">Projekte</a>
         <a class="active" href="mitwirken.html">Mitwirken</a>
-        <a class="" href="ueber-mich.html">Über mich</a>
+        <a href="uebermich.html">Übermich</a>
       </nav>
     </header>
     <main class="page">
       <section class="hero">
         <p class="eyebrow">Mitwirken</p>
         <h1>Mitwirken</h1>
-        <p class="placeholder">Ein ruhiger Einstieg für bekannte Menschen.</p>
+        <p>Ein ruhiger Einstieg für bekannte Menschen.</p>
+      </section>
+      <section class="content-card" aria-labelledby="entries-title">
+        <p class="eyebrow">Pinnwand</p>
+        <h2 id="entries-title">Aktuelle Einträge</h2>
+        <div data-entry-root></div>
       </section>
     </main>
   </div>

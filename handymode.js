@@ -1,41 +1,28 @@
-(function () {
-  function matches(query) {
-    return window.matchMedia && window.matchMedia(query).matches;
-  }
+(() => {
+  const root = document.documentElement;
 
-  function isHandymode() {
-    if (navigator.userAgentData && typeof navigator.userAgentData.mobile === 'boolean') {
-      return navigator.userAgentData.mobile;
+  const mobileFromUserAgentData = () => {
+    if (!navigator.userAgentData || typeof navigator.userAgentData.mobile !== "boolean") {
+      return null;
     }
+    return navigator.userAgentData.mobile;
+  };
 
-    var ua = navigator.userAgent || navigator.vendor || window.opera || '';
+  const mobileFromUserAgent = () => {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile/i.test(navigator.userAgent);
+  };
 
-    if (/Mobi|Android|iPhone|iPad|iPod|Windows Phone|Mobile/i.test(ua)) {
-      return true;
+  const coarseBrowserMode = () => {
+    if (!window.matchMedia) {
+      return false;
     }
+    return window.matchMedia("(pointer: coarse)").matches && navigator.maxTouchPoints > 0;
+  };
 
-    return Boolean(
-      navigator.maxTouchPoints > 1 &&
-      matches('(pointer: coarse)') &&
-      matches('(hover: none)')
-    );
-  }
+  const userAgentDataResult = mobileFromUserAgentData();
+  const isHandymode = userAgentDataResult === null
+    ? mobileFromUserAgent() || coarseBrowserMode()
+    : userAgentDataResult || coarseBrowserMode();
 
-  function applyHandymode() {
-    document.documentElement.classList.toggle('handymode', isHandymode());
-  }
-
-  applyHandymode();
-  window.addEventListener('pageshow', applyHandymode);
-
-  if (window.matchMedia) {
-    ['(pointer: coarse)', '(hover: none)'].forEach(function (query) {
-      var media = window.matchMedia(query);
-      if (media.addEventListener) {
-        media.addEventListener('change', applyHandymode);
-      } else if (media.addListener) {
-        media.addListener(applyHandymode);
-      }
-    });
-  }
-}());
+  root.classList.toggle("handymode", isHandymode);
+})();
