@@ -13,14 +13,14 @@
   --font-lg: 2rem;
 
   /* Paddings */
-  --pad-sm: 10px;
-  --pad-md: 18px;
-  --pad-lg: 28px;
+  --pad-sm: 3px;
+  --pad-md: 4px;
+  --pad-lg: 5px;
 
-  /* Radien; Sonderwerte 999px und 0.4em bleiben unveraendert. */
-  --radius-sm: 14px;
-  --radius-md: 18px;
-  --radius-lg: 24px;
+  /* Radien */
+  --radius-sm: 1px;
+  --radius-md: 2px;
+  --radius-lg: 3px;
 }
 
 * {
