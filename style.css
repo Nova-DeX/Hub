@@ -5,12 +5,12 @@
   --muted: #aeb4bf;
   --line: #2a2d35;
   --accent: #d7ff67;
-  --side: 100px;
+  --side: 120px;
 
   /* Schriftgroessen */
   --font-sm: 0.78rem;
   --font-md: 0.95rem;
-  --font-lg: 2rem;
+  --font-lg: 1.65rem;
 
   /* Paddings */
   --pad-sm: 10px;
@@ -18,9 +18,9 @@
   --pad-lg: 15px;
 
   /* Radien */
-  --radius-sm: 10px;
-  --radius-md: 12px;
-  --radius-lg: 15px;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
 }
 
 * {
