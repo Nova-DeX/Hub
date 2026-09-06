@@ -5,7 +5,7 @@
   --muted: #aeb4bf;
   --line: #2a2d35;
   --accent: #d7ff67;
-  --side: 140px;
+  --side: 100px;
 
   /* Schriftgroessen */
   --font-sm: 0.78rem;
@@ -13,14 +13,14 @@
   --font-lg: 2rem;
 
   /* Paddings */
-  --pad-sm: 3px;
-  --pad-md: 4px;
-  --pad-lg: 5px;
+  --pad-sm: 10px;
+  --pad-md: 12px;
+  --pad-lg: 15px;
 
   /* Radien */
-  --radius-sm: 1px;
-  --radius-md: 2px;
-  --radius-lg: 3px;
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 15px;
 }
 
 * {
