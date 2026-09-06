@@ -6,6 +6,21 @@
   --line: #2a2d35;
   --accent: #d7ff67;
   --side: 140px;
+
+  /* Schriftgroessen */
+  --font-sm: 0.78rem;
+  --font-md: 0.95rem;
+  --font-lg: 2rem;
+
+  /* Paddings */
+  --pad-sm: 10px;
+  --pad-md: 18px;
+  --pad-lg: 28px;
+
+  /* Radien; Sonderwerte 999px und 0.4em bleiben unveraendert. */
+  --radius-sm: 14px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
 }
 
 * {
@@ -49,7 +64,7 @@ button {
   justify-content: flex-start;
   align-items: flex-start;
   gap: 22px;
-  padding: 28px 10px;
+  padding: var(--pad-lg) var(--pad-sm);
   border-right: 1px solid var(--line);
   background: rgba(16, 17, 20, 0.78);
   backdrop-filter: blur(16px);
@@ -58,7 +73,7 @@ button {
 .logo {
   color: var(--text);
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: var(--font-md);
   font-weight: 800;
   letter-spacing: 0.02em;
 }
@@ -74,10 +89,10 @@ button {
 .nav a {
   color: var(--muted);
   text-decoration: none;
-  padding: 7px 10px;
+  padding: var(--pad-sm) var(--pad-sm);
   border: 1px solid transparent;
   border-radius: 999px;
-  font-size: 0.92rem;
+  font-size: var(--font-md);
 }
 
 .nav a:hover,
@@ -90,7 +105,7 @@ button {
 .page {
   width: min(760px, calc(100% - 32px));
   margin: 0;
-  padding: 50px 0 48px 16px;
+  padding: var(--pad-lg) 0 var(--pad-lg) var(--pad-md);
 }
 
 .page > * + * {
@@ -101,13 +116,13 @@ button {
 .content-card {
   background: rgba(24, 26, 32, 0.82);
   border: 1px solid var(--line);
-  border-radius: 24px;
-  padding: clamp(18px, 3.2vw, 34px);
+  border-radius: var(--radius-lg);
+  padding: clamp(var(--pad-md), 3.2vw, var(--pad-lg));
   box-shadow: 0 24px 58px rgba(0, 0, 0, 0.20);
 }
 
 .hero h1 {
-  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-size: clamp(var(--font-lg), 4.5vw, var(--font-lg));
   line-height: 0.96;
   margin: 0 0 12px;
   max-width: 760px;
@@ -116,7 +131,7 @@ button {
 .hero p {
   margin: 0;
   color: var(--muted);
-  font-size: 1rem;
+  font-size: var(--font-md);
   line-height: 1.5;
   max-width: 620px;
 }
@@ -125,20 +140,20 @@ button {
   color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  font-size: 0.72rem;
+  font-size: var(--font-sm);
   font-weight: 800;
   margin: 0 0 10px;
 }
 
 h1 {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(var(--font-lg), 5vw, var(--font-lg));
   line-height: 0.95;
   margin: 0 0 18px;
   max-width: 850px;
 }
 
 h2 {
-  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-size: clamp(var(--font-md), 3vw, var(--font-lg));
   line-height: 1.08;
   margin: 0 0 14px;
 }
@@ -149,7 +164,7 @@ h3 {
 
 p {
   color: var(--muted);
-  font-size: 1rem;
+  font-size: var(--font-md);
   line-height: 1.55;
   max-width: 680px;
 }
@@ -164,9 +179,9 @@ p {
   grid-template-columns: minmax(0, 1fr) 126px;
   gap: 14px;
   align-items: stretch;
-  padding: 14px;
+  padding: var(--pad-md);
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.03);
 }
 
@@ -183,7 +198,7 @@ p {
   display: inline-block;
   margin-bottom: 6px;
   color: var(--accent);
-  font-size: 0.7rem;
+  font-size: var(--font-sm);
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -192,14 +207,14 @@ p {
 .entry-title {
   margin: 0 0 6px;
   color: var(--text);
-  font-size: 1.06rem;
+  font-size: var(--font-md);
   line-height: 1.22;
 }
 
 .entry-intro {
   margin: 0;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: var(--font-md);
   line-height: 1.45;
 }
 
@@ -209,7 +224,7 @@ p {
   min-height: 92px;
   object-fit: cover;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: var(--radius-sm);
   background: var(--panel);
 }
 
@@ -219,7 +234,7 @@ p {
   align-items: center;
   justify-content: center;
   margin-top: 14px;
-  padding: 8px 12px;
+  padding: var(--pad-sm) var(--pad-sm);
   border: 1px solid var(--line);
   border-radius: 999px;
   color: var(--text);
@@ -242,7 +257,7 @@ p {
 
 .detail-head h2 {
   margin: 0 0 10px;
-  font-size: clamp(1.7rem, 4vw, 3rem);
+  font-size: clamp(var(--font-lg), 4vw, var(--font-lg));
 }
 
 .detail-head p {
@@ -261,7 +276,7 @@ p {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   background: var(--panel);
 }
 
@@ -280,7 +295,7 @@ p {
 }
 
 .markdown h1 {
-  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  font-size: clamp(var(--font-lg), 3.5vw, var(--font-lg));
   margin: 26px 0 12px;
 }
 
@@ -298,15 +313,15 @@ p {
 
 .markdown ul {
   margin: 0 0 16px;
-  padding-left: 1.2rem;
+  padding-left: var(--pad-md);
   color: var(--muted);
-  font-size: 0.98rem;
+  font-size: var(--font-md);
   line-height: 1.55;
   max-width: 680px;
 }
 
 .markdown code {
-  padding: 0.1em 0.35em;
+  padding: var(--pad-sm) var(--pad-sm);
   border-radius: 0.4em;
   background: rgba(255, 255, 255, 0.07);
 }
@@ -314,8 +329,8 @@ p {
 .placeholder,
 .status {
   border: 1px dashed var(--line);
-  border-radius: 16px;
-  padding: 18px;
+  border-radius: var(--radius-md);
+  padding: var(--pad-md);
   background: rgba(255, 255, 255, 0.03);
   color: var(--muted);
 }
@@ -338,14 +353,14 @@ html.handymode .site-header {
   height: auto;
   flex-direction: column;
   gap: 7px;
-  padding: 8px 10px;
+  padding: var(--pad-sm) var(--pad-sm);
   border-right: 0;
   border-bottom: 1px solid var(--line);
   background: rgba(16, 17, 20, 0.92);
 }
 
 html.handymode .logo {
-  font-size: 0.86rem;
+  font-size: var(--font-sm);
 }
 
 html.handymode .nav {
@@ -361,34 +376,34 @@ html.handymode .nav::-webkit-scrollbar {
 
 html.handymode .nav a {
   flex: 0 0 auto;
-  padding: 6px 9px;
-  font-size: 0.78rem;
+  padding: var(--pad-sm) var(--pad-sm);
+  font-size: var(--font-sm);
   white-space: nowrap;
 }
 
 html.handymode .page {
   width: min(760px, calc(100% - 20px));
-  padding: 24px 0 34px;
+  padding: var(--pad-lg) 0 var(--pad-lg);
   margin: 0 auto;
 }
 
 html.handymode .hero,
 html.handymode .content-card {
-  border-radius: 20px;
-  padding: 20px;
+  border-radius: var(--radius-md);
+  padding: var(--pad-md);
 }
 
 html.handymode .hero h1 {
-  font-size: clamp(1.8rem, 11vw, 2.7rem);
+  font-size: clamp(var(--font-lg), 11vw, var(--font-lg));
 }
 
 html.handymode p {
-  font-size: 0.95rem;
+  font-size: var(--font-md);
 }
 
 html.handymode .entry-preview {
   grid-template-columns: 1fr;
-  padding: 12px;
+  padding: var(--pad-sm);
 }
 
 html.handymode .entry-preview-image {
